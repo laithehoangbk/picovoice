@@ -29,21 +29,8 @@ from porcupine import Porcupine
 def _default_library_path():
     system = platform.system()
     machine = platform.machine()
-
-    if system == 'Darwin':
-        return os.path.join(os.path.dirname(__file__), '../../lib/mac/%s/libpv_porcupine.dylib' % machine)
-    elif system == 'Linux':
-        if machine == 'x86_64' or machine == 'i386':
-            return os.path.join(os.path.dirname(__file__), '../../lib/linux/%s/libpv_porcupine.so' % machine)
-        else:
-            raise Exception('cannot autodetect the binary type. Please enter the path to the shared object using --library_path command line argument.')
-    elif system == 'Windows':
-        if platform.architecture()[0] == '32bit':
-            return os.path.join(os.path.dirname(__file__), '..\\..\\lib\\windows\\i686\\libpv_porcupine.dll')
-        else:
-            return os.path.join(os.path.dirname(__file__), '..\\..\\lib\\windows\\amd64\\libpv_porcupine.dll')
-
-    raise NotImplementedError('Porcupine is not supported on %s/%s yet!' % (system, machine))
+    return os.path.join(os.path.dirname(__file__), '../../lib/linux/x86_64/libpv_porcupine.so')
+        
 
 
 def _run(input_audio_file_path, library_path, model_file_path, keyword_file_paths, sensitivity):
