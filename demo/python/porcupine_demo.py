@@ -152,7 +152,7 @@ class PorcupineDemo(Thread):
 def _default_library_path():
     system = platform.system()
     machine = platform.machine()
-    return os.path.join(os.path.dirname(__file__), '../../lib/linux/x86_64/libpv_porcupine.so')
+    return os.path.join(os.path.dirname(__file__), '../../lib/armlinux/a9-neon/libpv_porcupine.so')
       
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
